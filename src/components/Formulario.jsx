@@ -1,14 +1,16 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import { useNavigate } from 'react-router';
 import * as Yup from 'yup';
 import Alerta from './Alerta';
 
 const Formulario = () => {
+  const navigate = useNavigate();
 
   const nuevoClienteSchema = Yup.object().shape({
     nombre: Yup.string()
               .min(3, 'El Nombre es muy corto')
-              .min(20, 'El Nombre es muy corto')
+              .max(20, 'El Nombre es muy largo')
               .required('El Nombre del Cliente es obligatorio'),
     empresa: Yup.string()
               .required('El Nombre de la Empresa es obligatorio'),
@@ -21,8 +23,26 @@ const Formulario = () => {
               .typeError('El Número no es válido')
   })
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
+    try{
+      const url = 'http://localhost:4000/clientes';
 
+      const respuesta = await fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      console.log(respuesta);
+
+      const resultado = await respuesta.json();
+      console.log(resultado);
+      
+      navigate('/clientes');
+    } catch(error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -40,8 +60,9 @@ const Formulario = () => {
             notas:''
           }}
 
-          onSubmit={(values) => {
-            handleSubmit(values)
+          onSubmit={async (values, {resetForm}) => {
+            await handleSubmit(values);
+            resetForm();
           }}
 
           validationSchema={nuevoClienteSchema}

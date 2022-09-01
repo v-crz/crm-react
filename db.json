@@ -1,0 +1,28 @@
+{
+  "clientes": [
+    {
+      "nombre": "Juan Dominguez ABC",
+      "empresa": "Código",
+      "email": "correo@correo.com",
+      "telefono": "0123456789",
+      "notas": "Cliente recomendado por otro",
+      "id": 1
+    },
+    {
+      "nombre": "Karen",
+      "empresa": "K-diseño",
+      "email": "karen@correo.com",
+      "telefono": "0123456789",
+      "notas": "Karen está cotizando toner",
+      "id": 2
+    },
+    {
+      "nombre": "Paulina",
+      "empresa": "Paulina Construcciones",
+      "email": "correo@correo.com",
+      "telefono": "123456",
+      "notas": "",
+      "id": 3
+    }
+  ]
+}
