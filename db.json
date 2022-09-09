@@ -1,7 +1,7 @@
 {
   "clientes": [
     {
-      "nombre": "Juan Dominguez ABC",
+      "nombre": "Juan Actualizado 1",
       "empresa": "Código",
       "email": "correo@correo.com",
       "telefono": "0123456789",
@@ -23,6 +23,14 @@
       "telefono": "123456",
       "notas": "",
       "id": 3
+    },
+    {
+      "nombre": "Edgar Lopez",
+      "empresa": "CCJ",
+      "email": "correo@correo.com",
+      "telefono": "1234564785",
+      "notas": "Cliente solicita un servidor",
+      "id": 4
     }
   ]
 }
